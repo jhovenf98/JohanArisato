@@ -29,25 +29,27 @@ I build **location-aware machine learning and spatial analysis** around one ques
 
 ### 🗺️ GeoAI for Cities: research projects
 
-Each project has an interactive demo: [shade map](https://johanarisato.github.io/geoai-for-cities/explore/shade.html) · [housing explorer](https://johanarisato.github.io/geoai-for-cities/explore/housing.html) · [CurbCall app](https://johanarisato.github.io/geoai-for-cities/explore/curbcall.html) · [database explorer](https://johanarisato.github.io/geoai-for-cities/explore/database.html)
+#### 🌳 [Who Gets the Shade?](https://github.com/JohanArisato/who-gets-the-shade) · `LIVE · REAL DATA`
+When NYC ranks neighborhoods for tree planting, how much does the ranking rule change who benefits?
 
-| Project | Question | Methods |
-|---|---|---|
-| **[Will It Get Built?](https://github.com/JohanArisato/housing-site-realization)** | Which of San Diego's 2021 Housing Element sites actually got housing approvals, and can a model predict it better than the city's capacity assumptions? *Pipeline built and validated on synthetic data; real-data run in progress.* | Spatial CV, LightGBM, calibration, SHAP, equity audit |
-| **[Who Gets the Shade?](https://github.com/JohanArisato/who-gets-the-shade)** | When NYC ranks neighborhoods for tree planting, how much does the ranking rule change who benefits? | Moran's I/LISA, spatial lag & error models, leave-one-borough-out CV, 5,000 random weightings |
-| **[CurbCall](https://github.com/JohanArisato/curbcall)** | If residents report and vote on what to fix first, whose problems get heard? | Product prototype, PostGIS data model, per-area ranking |
-| **[GeoAI for Cities](https://github.com/JohanArisato/geoai-for-cities)** | What is GeoAI, and who benefits when cities use it to decide? | Research website and article series |
-| **[geoai-cities-db](https://github.com/JohanArisato/geoai-cities-db)** | One spatial database behind every project | GeoPackage + PostGIS, data catalog with synthetic-data flags, cross-project spatial views |
+Across NYC's 42 UHF neighborhoods, each point of tree canopy is associated with 0.17 °F lower surface temperature, but heat-related ER visits track poverty (r = 0.59) far more than heat. Switching the ranking rule moves the poorest neighborhoods from 4 to 9 of the first 10 planted. (The equity-weighted rule includes poverty directly, so part of that jump is by design; the open question is what each rule trades away.)
 
-**Who Gets the Shade? in one line:** across NYC's 42 UHF neighborhoods, each point of tree canopy is associated with 0.17 °F lower surface temperature, but heat-related ER visits track poverty (r = 0.59) far more than heat. Switching the ranking rule moves the poorest neighborhoods from 4 to 9 of the first 10 planted. (The equity-weighted rule includes poverty directly, so part of that jump is by design; the open question is what each rule trades away.)
+<p align="center"><a href="https://github.com/JohanArisato/who-gets-the-shade"><img src="assets/shade_maps.svg" width="100%" alt="Two NYC maps: heat-related ER visit rates by neighborhood (2.6 to 15.3 per 100,000), and robust planting priorities, outlined where a neighborhood is in the top 10 under at least 90% of 5,000 ranking rules."></a></p>
+<p align="center"><a href="https://github.com/JohanArisato/who-gets-the-shade"><img src="assets/ranking_rules.svg" width="100%" alt="Bar chart: poorest-third neighborhoods among the first 10 planted: canopy gap 4, hottest surfaces 6, canopy gap plus heat 6, heat illness 7, equity-weighted 9."></a></p>
 
-<p align="center">
-  <a href="https://github.com/JohanArisato/who-gets-the-shade"><img src="https://raw.githubusercontent.com/JohanArisato/who-gets-the-shade/main/figures/04_maps.png" width="100%" alt="Two NYC maps: heat-related ER visit rates by neighborhood, and how often each neighborhood lands in the top 10 planting priorities across 5,000 ranking weightings"></a>
-</p>
-<p align="center">
-  <a href="https://github.com/JohanArisato/who-gets-the-shade"><img src="https://raw.githubusercontent.com/JohanArisato/who-gets-the-shade/main/figures/03_ranking_rules.png" width="70%" alt="Bar chart: poorest-third neighborhoods among the first 10 planted under five ranking rules, from 4 of 10 (canopy gap) to 9 of 10 (equity-weighted)"></a>
-</p>
-<p align="center"><sub>Real data: NYC Environment &amp; Health Data Portal, 42 UHF neighborhoods. Code and reproduction tests in <a href="https://github.com/JohanArisato/who-gets-the-shade">who-gets-the-shade</a>.</sub></p>
+**Methods:** Moran's I/LISA · spatial lag & error models · leave-one-borough-out CV · 5,000 random weightings · [interactive map](https://johanarisato.github.io/geoai-for-cities/explore/shade.html)
+
+#### 🏗️ [Will It Get Built?](https://github.com/JohanArisato/housing-site-realization) · `TESTING · SYNTHETIC DATA`
+Which of San Diego's 2021 Housing Element sites actually got housing approvals, and can a model predict it better than the city's capacity assumptions? *Pipeline built and validated on synthetic data; real-data run in progress.*
+
+**Methods:** spatial CV · LightGBM · calibration · SHAP · equity audit · [explorer](https://johanarisato.github.io/geoai-for-cities/explore/housing.html)
+
+#### 📣 [CurbCall](https://github.com/JohanArisato/curbcall) · `PROTOTYPE`
+If residents report and vote on what to fix first, whose problems get heard?
+
+**Methods:** product prototype · PostGIS data model · per-area ranking · [app demo](https://johanarisato.github.io/geoai-for-cities/explore/curbcall.html)
+
+**Behind all three:** [geoai-cities-db](https://github.com/JohanArisato/geoai-cities-db), one GeoPackage + PostGIS database with synthetic-data flags ([explorer](https://johanarisato.github.io/geoai-for-cities/explore/database.html)), and [GeoAI for Cities](https://github.com/JohanArisato/geoai-for-cities), the research site and article series.
 
 #### How the projects fit together
 

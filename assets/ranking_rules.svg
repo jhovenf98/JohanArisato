@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="900" height="470" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+<rect width="900" height="470" rx="14" fill="#0a0f1a"/>
+<text x="32" y="44" fill="#3fd0e0" font-size="16" letter-spacing="3" font-family="ui-monospace,Menlo,monospace">// THE RANKING RULE IS THE POLICY</text>
+<text x="32" y="80" fill="#e6edf3" font-size="22" font-weight="700">Poorest-third neighborhoods among the first 10 planted</text>
+<line x1="260" y1="106" x2="260" y2="402" stroke="#1b2a3d" stroke-width="1"/>
+<text x="260" y="424" fill="#7d8fa3" font-size="14" text-anchor="middle">0</text>
+<line x1="368" y1="106" x2="368" y2="402" stroke="#1b2a3d" stroke-width="1"/>
+<text x="368" y="424" fill="#7d8fa3" font-size="14" text-anchor="middle">2</text>
+<line x1="476" y1="106" x2="476" y2="402" stroke="#1b2a3d" stroke-width="1"/>
+<text x="476" y="424" fill="#7d8fa3" font-size="14" text-anchor="middle">4</text>
+<line x1="584" y1="106" x2="584" y2="402" stroke="#1b2a3d" stroke-width="1"/>
+<text x="584" y="424" fill="#7d8fa3" font-size="14" text-anchor="middle">6</text>
+<line x1="692" y1="106" x2="692" y2="402" stroke="#1b2a3d" stroke-width="1"/>
+<text x="692" y="424" fill="#7d8fa3" font-size="14" text-anchor="middle">8</text>
+<line x1="800" y1="106" x2="800" y2="402" stroke="#1b2a3d" stroke-width="1"/>
+<text x="800" y="424" fill="#7d8fa3" font-size="14" text-anchor="middle">10</text>
+<text x="246" y="139" fill="#e6edf3" font-size="18" text-anchor="end">Canopy gap</text>
+<rect x="260" y="118" height="32" rx="4" width="216" fill="#1a7f8e"><animate attributeName="width" values="0;216;216;0" keyTimes="0;0.15;0.92;1" dur="7s" begin="0.00s" repeatCount="indefinite"/></rect>
+<text x="486" y="140" fill="#e6edf3" font-size="17">4 of 10<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.12;0.17;0.92;1" dur="7s" begin="0.00s" repeatCount="indefinite"/></text>
+<text x="246" y="197" fill="#e6edf3" font-size="18" text-anchor="end">Hottest surfaces</text>
+<rect x="260" y="176" height="32" rx="4" width="324" fill="#1a7f8e"><animate attributeName="width" values="0;324;324;0" keyTimes="0;0.15;0.92;1" dur="7s" begin="0.15s" repeatCount="indefinite"/></rect>
+<text x="594" y="198" fill="#e6edf3" font-size="17">6 of 10<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.12;0.17;0.92;1" dur="7s" begin="0.15s" repeatCount="indefinite"/></text>
+<text x="246" y="255" fill="#e6edf3" font-size="18" text-anchor="end">Canopy gap + heat</text>
+<rect x="260" y="234" height="32" rx="4" width="324" fill="#1a7f8e"><animate attributeName="width" values="0;324;324;0" keyTimes="0;0.15;0.92;1" dur="7s" begin="0.30s" repeatCount="indefinite"/></rect>
+<text x="594" y="256" fill="#e6edf3" font-size="17">6 of 10<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.12;0.17;0.92;1" dur="7s" begin="0.30s" repeatCount="indefinite"/></text>
+<text x="246" y="313" fill="#e6edf3" font-size="18" text-anchor="end">Heat illness</text>
+<rect x="260" y="292" height="32" rx="4" width="378" fill="#1a7f8e"><animate attributeName="width" values="0;378;378;0" keyTimes="0;0.15;0.92;1" dur="7s" begin="0.45s" repeatCount="indefinite"/></rect>
+<text x="648" y="314" fill="#e6edf3" font-size="17">7 of 10<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.12;0.17;0.92;1" dur="7s" begin="0.45s" repeatCount="indefinite"/></text>
+<text x="246" y="371" fill="#e6edf3" font-size="18" text-anchor="end">Equity-weighted</text>
+<rect x="260" y="350" height="32" rx="4" width="486" fill="#5cc47e"><animate attributeName="width" values="0;486;486;0" keyTimes="0;0.15;0.92;1" dur="7s" begin="0.60s" repeatCount="indefinite"/></rect>
+<text x="756" y="372" fill="#e6edf3" font-size="17">9 of 10<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.12;0.17;0.92;1" dur="7s" begin="0.60s" repeatCount="indefinite"/></text>
+<text x="32" y="448" fill="#7d8fa3" font-size="15">The equity-weighted rule includes poverty directly, so part of its lead is by design.</text>
+</svg>

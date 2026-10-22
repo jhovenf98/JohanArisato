@@ -154,7 +154,9 @@ def network():
         ("#f2c45a", "SD Housing Element", "Will It Get Built?", "housing realization", "TESTING · SYNTHETIC", 260),
         ("#e8534a", "Resident reports", "CurbCall", "whose problems get heard", "PROTOTYPE", 390),
     ]
-    for color, src, proj, sub, status, y in rows:
+    trains = []
+    for i, (color, src, proj, sub, status, y) in enumerate(rows):
+        trains.append((color, f"M50,{y} H150 C240,{y} 250,{hy} {hx-60},{hy} L{hx+60},{hy} C{hx+150},{hy} {hx+160},{y} {hx+200},{y} H{hx+210}", i))
         s.append(f'<path d="M50,{y} H150 C240,{y} 250,{hy} {hx-60},{hy}" stroke="{color}" stroke-width="9" fill="none" stroke-linecap="round"/>')
         s.append(f'<path d="M{hx+60},{hy} C{hx+150},{hy} {hx+160},{y} {hx+200},{y} H{hx+210}" stroke="{color}" stroke-width="9" fill="none" stroke-linecap="round"/>')
         s.append(f'<circle cx="50" cy="{y}" r="11" fill="{BG}" stroke="{color}" stroke-width="5"/>')
@@ -166,7 +168,15 @@ def network():
         tw = len(status) * 9 + 20
         s.append(f'<rect x="{px+26}" y="{y+30}" width="{tw}" height="24" rx="12" fill="none" stroke="{color}" stroke-width="1.5"/>')
         s.append(f'<text x="{px+26+tw/2}" y="{y+47}" fill="{color}" font-size="13" text-anchor="middle" font-family="ui-monospace,Menlo,monospace">{status}</text>')
-    s.append(f'<rect x="{hx-80}" y="{hy-40}" width="160" height="80" rx="40" fill="{BG}" stroke="{INK}" stroke-width="5"/>')
+    # Data "trains" riding each line from source, through the database, to the project
+    for color, d, i in trains:
+        for k in range(2):
+            begin = f"{i * 0.9 + k * 2.4:.1f}s"
+            s.append(f'<circle r="6" fill="{INK}" stroke="{color}" stroke-width="3" opacity="0">'
+                     f'<animateMotion dur="4.8s" begin="{begin}" repeatCount="indefinite" path="{d}"/>'
+                     f'<animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.9;1" dur="4.8s" begin="{begin}" repeatCount="indefinite"/></circle>')
+    s.append(f'<rect x="{hx-80}" y="{hy-40}" width="160" height="80" rx="40" fill="{BG}" stroke="{INK}" stroke-width="5">'
+             f'<animate attributeName="stroke" values="{INK};{CYAN};{INK}" dur="2.4s" repeatCount="indefinite"/></rect>')
     s.append(f'<text x="{hx}" y="{hy-4}" fill="{INK}" font-size="17" font-weight="700" text-anchor="middle">geoai-cities-db</text>')
     s.append(f'<text x="{hx}" y="{hy+20}" fill="{MUTED}" font-size="14" text-anchor="middle">GeoPackage · PostGIS</text>')
     s.append(f'<text x="36" y="{H-28}" fill="{MUTED}" font-size="16">All three feed the GeoAI for Cities research site.</text>')
@@ -174,6 +184,84 @@ def network():
     (OUT / "system_map.svg").write_text("\n".join(s))
 
 
+def _feats(path):
+    g = json.load(open(path))
+    return [(shape(f["geometry"]).simplify(0.0012, preserve_topology=True), f["properties"]) for f in g["features"]]
+
+
+def shade_maps(results_geojson):
+    """Two dark choropleths: where heat illness is, and robust planting priorities."""
+    feats = _feats(results_geojson)
+    bounds = (min(g.bounds[0] for g, _ in feats), min(g.bounds[1] for g, _ in feats),
+              max(g.bounds[2] for g, _ in feats), max(g.bounds[3] for g, _ in feats))
+    W, H = 900, 560
+    SANS = '-apple-system,Segoe UI,Helvetica,Arial,sans-serif'
+    s = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" font-family="{SANS}">',
+         f'<rect width="{W}" height="{H}" rx="14" fill="{BG}"/>',
+         '<defs><pattern id="d3" width="24" height="24" patternUnits="userSpaceOnUse">'
+         f'<circle cx="1" cy="1" r="1" fill="{GRID}"/></pattern></defs>',
+         f'<rect width="{W}" height="{H}" rx="14" fill="url(#d3)"/>',
+         f'<text x="32" y="44" fill="{CYAN}" font-size="16" letter-spacing="3" font-family="ui-monospace,Menlo,monospace">// WHO GETS THE SHADE? · NYC</text>']
+    rates = [pr["heat_ed_rate"] for _, pr in feats]
+    lo, hi = min(rates), max(rates)
+    GREENS = ["#13261f", "#174a35", "#1d6e4a", "#2f9a62", "#5cc47e", "#a6e3a1"]
+    panels = [(20, "Where people get sick from heat", f"heat ER visits per 100k ({lo:.1f} → {hi:.1f})", lambda pr: ramp((pr["heat_ed_rate"] - lo) / (hi - lo))),
+              (460, "Robust planting priorities", "share of 5,000 ranking rules in top 10",
+               lambda pr: GREENS[min(int(pr["top10_share"] * (len(GREENS) - 1) + 0.5), len(GREENS) - 1)])]
+    for x0, title, sub, color in panels:
+        p = projector(bounds, x0, 120, 420, 360)
+        s.append(f'<text x="{x0+12}" y="84" fill="{INK}" font-size="22" font-weight="700">{title}</text>')
+        s.append(f'<text x="{x0+12}" y="108" fill="{MUTED}" font-size="15">{sub}</text>')
+        s.append('<g stroke="#0a0f1a" stroke-width="1" stroke-linejoin="round">')
+        for gm, pr in feats:
+            s.append(f'<path d="{path_d(gm, p)}" fill="{color(pr)}"><title>{escape(pr["name"])}</title></path>')
+        s.append('</g>')
+        if x0 == 460:
+            for gm, pr in feats:
+                if pr["top10_share"] >= 0.9:
+                    s.append(f'<path d="{path_d(gm, p)}" fill="none" stroke="{CYAN}" stroke-width="2.5" stroke-linejoin="round">'
+                             '<animate attributeName="stroke-opacity" values="1;0.25;1" dur="2.6s" repeatCount="indefinite"/></path>')
+    s.append(f'<text x="32" y="{H-48}" fill="{MUTED}" font-size="15">Outlined in cyan: in the top 10 under at least 90% of ranking rules.</text>')
+    s.append(f'<text x="32" y="{H-24}" fill="{MUTED}" font-size="15">Source: NYC Environment &amp; Health Data Portal · 42 UHF neighborhoods</text>')
+    s.append('</svg>')
+    (OUT / "shade_maps.svg").write_text("\n".join(s))
+
+
+def ranking_rules(results_json):
+    """Animated bars: poorest-third neighborhoods among the first 10 planted, by rule."""
+    r = json.load(open(results_json))["ranking_rules"]
+    labels = {"canopy_gap": "Canopy gap", "hottest_surface": "Hottest surfaces",
+              "canopy_gap_and_heat": "Canopy gap + heat", "heat_illness": "Heat illness",
+              "equity_weighted": "Equity-weighted"}
+    W, H = 900, 470
+    SANS = '-apple-system,Segoe UI,Helvetica,Arial,sans-serif'
+    s = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" font-family="{SANS}">',
+         f'<rect width="{W}" height="{H}" rx="14" fill="{BG}"/>',
+         f'<text x="32" y="44" fill="{CYAN}" font-size="16" letter-spacing="3" font-family="ui-monospace,Menlo,monospace">// THE RANKING RULE IS THE POLICY</text>',
+         f'<text x="32" y="80" fill="{INK}" font-size="22" font-weight="700">Poorest-third neighborhoods among the first 10 planted</text>']
+    x0, unit, top = 260, 54, 112
+    for k in range(0, 11, 2):
+        x = x0 + k * unit
+        s.append(f'<line x1="{x}" y1="{top-6}" x2="{x}" y2="{top+5*58}" stroke="{GRID}" stroke-width="1"/>')
+        s.append(f'<text x="{x}" y="{top+5*58+22}" fill="{MUTED}" font-size="14" text-anchor="middle">{k}</text>')
+    for i, (key, lab) in enumerate(labels.items()):
+        v = r[key]["poorest_third_in_top10"]
+        y = top + i * 58
+        c = "#5cc47e" if key == "equity_weighted" else "#1a7f8e"
+        w = v * unit
+        s.append(f'<text x="{x0-14}" y="{y+27}" fill="{INK}" font-size="18" text-anchor="end">{lab}</text>')
+        s.append(f'<rect x="{x0}" y="{y+6}" height="32" rx="4" width="{w}" fill="{c}">'
+                 f'<animate attributeName="width" values="0;{w};{w};0" keyTimes="0;0.15;0.92;1" dur="7s" begin="{i*0.15:.2f}s" repeatCount="indefinite"/></rect>')
+        s.append(f'<text x="{x0+w+10}" y="{y+28}" fill="{INK}" font-size="17">{v} of 10'
+                 f'<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.12;0.17;0.92;1" dur="7s" begin="{i*0.15:.2f}s" repeatCount="indefinite"/></text>')
+    s.append(f'<text x="32" y="{H-22}" fill="{MUTED}" font-size="15">The equity-weighted rule includes poverty directly, so part of its lead is by design.</text>')
+    s.append('</svg>')
+    (OUT / "ranking_rules.svg").write_text("\n".join(s))
+
+
 if __name__ == "__main__":
+    # args: uhf42_shade.geojson  uhf42_shade_results.geojson  results.json  (all from who-gets-the-shade/data)
     banner(sys.argv[1])
     network()
+    shade_maps(sys.argv[2])
+    ranking_rules(sys.argv[3])
