@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+<rect width="900" height="500" rx="14" fill="#0a0f1a"/>
+<defs><pattern id="d2" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#1b2a3d"/></pattern></defs>
+<rect width="900" height="500" rx="14" fill="url(#d2)"/>
+<text x="36" y="48" fill="#3fd0e0" font-size="17" letter-spacing="3" font-family="ui-monospace,Menlo,monospace">// SYSTEM MAP</text>
+<path d="M50,130 H150 C240,130 250,260 340,260" stroke="#3fb6b0" stroke-width="9" fill="none" stroke-linecap="round"/>
+<path d="M460,260 C550,260 560,130 600,130 H610" stroke="#3fb6b0" stroke-width="9" fill="none" stroke-linecap="round"/>
+<circle cx="50" cy="130" r="11" fill="#0a0f1a" stroke="#3fb6b0" stroke-width="5"/>
+<text x="36" y="106" fill="#e6edf3" font-size="18">NYC health data</text>
+<circle cx="610" cy="130" r="13" fill="#0a0f1a" stroke="#3fb6b0" stroke-width="6"/>
+<text x="636" y="124" fill="#e6edf3" font-size="22" font-weight="700">Who Gets the Shade?</text>
+<text x="636" y="148" fill="#7d8fa3" font-size="17">ranking rules &amp; equity</text>
+<rect x="636" y="160" width="164" height="24" rx="12" fill="none" stroke="#3fb6b0" stroke-width="1.5"/>
+<text x="718.0" y="177" fill="#3fb6b0" font-size="13" text-anchor="middle" font-family="ui-monospace,Menlo,monospace">LIVE · REAL DATA</text>
+<path d="M50,260 H150 C240,260 250,260 340,260" stroke="#f2c45a" stroke-width="9" fill="none" stroke-linecap="round"/>
+<path d="M460,260 C550,260 560,260 600,260 H610" stroke="#f2c45a" stroke-width="9" fill="none" stroke-linecap="round"/>
+<circle cx="50" cy="260" r="11" fill="#0a0f1a" stroke="#f2c45a" stroke-width="5"/>
+<text x="36" y="236" fill="#e6edf3" font-size="18">SD Housing Element</text>
+<circle cx="610" cy="260" r="13" fill="#0a0f1a" stroke="#f2c45a" stroke-width="6"/>
+<text x="636" y="254" fill="#e6edf3" font-size="22" font-weight="700">Will It Get Built?</text>
+<text x="636" y="278" fill="#7d8fa3" font-size="17">housing realization</text>
+<rect x="636" y="290" width="191" height="24" rx="12" fill="none" stroke="#f2c45a" stroke-width="1.5"/>
+<text x="731.5" y="307" fill="#f2c45a" font-size="13" text-anchor="middle" font-family="ui-monospace,Menlo,monospace">TESTING · SYNTHETIC</text>
+<path d="M50,390 H150 C240,390 250,260 340,260" stroke="#e8534a" stroke-width="9" fill="none" stroke-linecap="round"/>
+<path d="M460,260 C550,260 560,390 600,390 H610" stroke="#e8534a" stroke-width="9" fill="none" stroke-linecap="round"/>
+<circle cx="50" cy="390" r="11" fill="#0a0f1a" stroke="#e8534a" stroke-width="5"/>
+<text x="36" y="366" fill="#e6edf3" font-size="18">Resident reports</text>
+<circle cx="610" cy="390" r="13" fill="#0a0f1a" stroke="#e8534a" stroke-width="6"/>
+<text x="636" y="384" fill="#e6edf3" font-size="22" font-weight="700">CurbCall</text>
+<text x="636" y="408" fill="#7d8fa3" font-size="17">whose problems get heard</text>
+<rect x="636" y="420" width="101" height="24" rx="12" fill="none" stroke="#e8534a" stroke-width="1.5"/>
+<text x="686.5" y="437" fill="#e8534a" font-size="13" text-anchor="middle" font-family="ui-monospace,Menlo,monospace">PROTOTYPE</text>
+<rect x="320" y="220" width="160" height="80" rx="40" fill="#0a0f1a" stroke="#e6edf3" stroke-width="5"/>
+<text x="400" y="256" fill="#e6edf3" font-size="17" font-weight="700" text-anchor="middle">geoai-cities-db</text>
+<text x="400" y="280" fill="#7d8fa3" font-size="14" text-anchor="middle">GeoPackage · PostGIS</text>
+<text x="36" y="472" fill="#7d8fa3" font-size="16">All three feed the GeoAI for Cities research site.</text>
+</svg>

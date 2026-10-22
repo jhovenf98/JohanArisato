@@ -1,4 +1,5 @@
-## Johan Fernandez
+<p align="center"><img src="assets/banner.svg" width="100%" alt="Johan Fernandez, urban data science and GeoAI. Map of NYC's 42 UHF neighborhoods colored by heat-related ER visit rate, from 2.6 to 15.3 per 100,000, highest in Port Richmond."></p>
+
 ### Urban data scientist · GeoAI for housing, land use and infrastructure
 
 I build **location-aware machine learning and spatial analysis** around one question: **who gets what in cities?** My work combines GIS, spatial statistics and predictive modeling with California and New York planning policy.
@@ -50,30 +51,18 @@ Each project has an interactive demo: [shade map](https://johanarisato.github.io
 
 #### How the projects fit together
 
-```mermaid
-flowchart LR
-    subgraph Data["Public data"]
-        A1["NYC Environment &<br/>Health Data Portal"]
-        A2["San Diego Housing Element<br/>sites & permits (ArcGIS REST)"]
-        A3["Resident reports<br/>(CurbCall prototype)"]
-    end
-    DB[("geoai-cities-db<br/>GeoPackage + PostGIS")]
-    subgraph Projects["Research questions"]
-        P1["Who Gets the Shade?<br/>ranking rules & equity"]
-        P2["Will It Get Built?<br/>predicting housing realization"]
-        P3["CurbCall<br/>whose problems get heard"]
-    end
-    W["GeoAI for Cities<br/>research site & articles"]
-    A1 --> DB
-    A2 --> DB
-    A3 --> DB
-    DB --> P1
-    DB --> P2
-    DB --> P3
-    P1 --> W
-    P2 --> W
-    P3 --> W
-```
+<p align="center"><img src="assets/system_map.svg" width="100%" alt="System map: NYC health data, San Diego Housing Element sites and resident reports feed geoai-cities-db, which powers Who Gets the Shade? (live, real data), Will It Get Built? (testing, synthetic data) and CurbCall (prototype)."></p>
+
+---
+
+### 🚧 Next up
+
+Planned projects, built one at a time. Full list with data sources and methods in **[ROADMAP.md](ROADMAP.md)**.
+
+- **Will It Get Built? (real-data run):** run the tested pipeline on San Diego's actual permit records
+- **Who Waits Longer?:** survival analysis of NYC 311 response times by neighborhood
+- **Minutes to Opportunity:** transit access to jobs from MTA GTFS with r5py
+- **Streets That See:** computer vision on street-level imagery, validated against NYC's tree census
 
 ---
 
