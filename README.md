@@ -32,13 +32,48 @@ Each project has an interactive demo: [shade map](https://johanarisato.github.io
 
 | Project | Question | Methods |
 |---|---|---|
-| **[Will It Get Built?](https://github.com/JohanArisato/housing-site-realization)** | Which of San Diego's 2021 Housing Element sites actually got housing approvals, and can a model predict it better than the city's capacity assumptions? | Spatial CV, LightGBM, calibration, SHAP, equity audit |
+| **[Will It Get Built?](https://github.com/JohanArisato/housing-site-realization)** | Which of San Diego's 2021 Housing Element sites actually got housing approvals, and can a model predict it better than the city's capacity assumptions? *Pipeline built and validated on synthetic data; real-data run in progress.* | Spatial CV, LightGBM, calibration, SHAP, equity audit |
 | **[Who Gets the Shade?](https://github.com/JohanArisato/who-gets-the-shade)** | When NYC ranks neighborhoods for tree planting, how much does the ranking rule change who benefits? | Moran's I/LISA, spatial lag & error models, leave-one-borough-out CV, 5,000 random weightings |
 | **[CurbCall](https://github.com/JohanArisato/curbcall)** | If residents report and vote on what to fix first, whose problems get heard? | Product prototype, PostGIS data model, per-area ranking |
 | **[GeoAI for Cities](https://github.com/JohanArisato/geoai-for-cities)** | What is GeoAI, and who benefits when cities use it to decide? | Research website and article series |
 | **[geoai-cities-db](https://github.com/JohanArisato/geoai-cities-db)** | One spatial database behind every project | GeoPackage + PostGIS, data catalog with synthetic-data flags, cross-project spatial views |
 
-**Who Gets the Shade? in one line:** tree canopy cools surfaces (−0.17 °F per point), but heat illness follows poverty (r = 0.59), and switching the ranking rule moves the poorest neighborhoods from 4 to 9 of the first 10 planted.
+**Who Gets the Shade? in one line:** across NYC's 42 UHF neighborhoods, each point of tree canopy is associated with 0.17 °F lower surface temperature, but heat-related ER visits track poverty (r = 0.59) far more than heat. Switching the ranking rule moves the poorest neighborhoods from 4 to 9 of the first 10 planted. (The equity-weighted rule includes poverty directly, so part of that jump is by design; the open question is what each rule trades away.)
+
+<p align="center">
+  <a href="https://github.com/JohanArisato/who-gets-the-shade"><img src="https://raw.githubusercontent.com/JohanArisato/who-gets-the-shade/main/figures/04_maps.png" width="100%" alt="Two NYC maps: heat-related ER visit rates by neighborhood, and how often each neighborhood lands in the top 10 planting priorities across 5,000 ranking weightings"></a>
+</p>
+<p align="center">
+  <a href="https://github.com/JohanArisato/who-gets-the-shade"><img src="https://raw.githubusercontent.com/JohanArisato/who-gets-the-shade/main/figures/03_ranking_rules.png" width="70%" alt="Bar chart: poorest-third neighborhoods among the first 10 planted under five ranking rules, from 4 of 10 (canopy gap) to 9 of 10 (equity-weighted)"></a>
+</p>
+<p align="center"><sub>Real data: NYC Environment &amp; Health Data Portal, 42 UHF neighborhoods. Code and reproduction tests in <a href="https://github.com/JohanArisato/who-gets-the-shade">who-gets-the-shade</a>.</sub></p>
+
+#### How the projects fit together
+
+```mermaid
+flowchart LR
+    subgraph Data["Public data"]
+        A1["NYC Environment &<br/>Health Data Portal"]
+        A2["San Diego Housing Element<br/>sites & permits (ArcGIS REST)"]
+        A3["Resident reports<br/>(CurbCall prototype)"]
+    end
+    DB[("geoai-cities-db<br/>GeoPackage + PostGIS")]
+    subgraph Projects["Research questions"]
+        P1["Who Gets the Shade?<br/>ranking rules & equity"]
+        P2["Will It Get Built?<br/>predicting housing realization"]
+        P3["CurbCall<br/>whose problems get heard"]
+    end
+    W["GeoAI for Cities<br/>research site & articles"]
+    A1 --> DB
+    A2 --> DB
+    A3 --> DB
+    DB --> P1
+    DB --> P2
+    DB --> P3
+    P1 --> W
+    P2 --> W
+    P3 --> W
+```
 
 ---
 
