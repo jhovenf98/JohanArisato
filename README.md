@@ -6,7 +6,7 @@ I build **location-aware machine learning and spatial analysis** around one ques
 
 🎓 B.A. Urban Studies & Planning, UC San Diego · preparing for doctoral study in urban data science
 📍 San Diego, CA · 📫 jhoven.jan98@gmail.com
-🌐 **[GeoAI for Cities research site](https://johanarisato.github.io/geoai-for-cities/)** · [Portfolio](https://johanarisato.github.io/Johan.github.io/)
+🌐 **[GeoAI for Cities research site](https://jhovenf98.github.io/geoai-for-cities/)** · [Portfolio](https://jhovenf98.github.io/Johan.github.io/)
 
 ---
 
@@ -21,35 +21,35 @@ I build **location-aware machine learning and spatial analysis** around one ques
 
 ### ✍️ Blog: GeoAI for Cities series
 
-- **[Part 1 · What Is GeoAI? Definitions, Foundations and Five Verbs Across U.S. Cities](https://johanarisato.github.io/geoai-for-cities/#part-1)**
-- **[Part 2 · Who Gets the Shade? Ranking New York Neighborhoods for Tree Planting](https://johanarisato.github.io/geoai-for-cities/#part-2)** (working paper)
-- [Research Notes: Questions, Methods and Data](https://johanarisato.github.io/geoai-for-cities/#research) · [All posts](https://johanarisato.github.io/geoai-for-cities/#blog)
+- **[Part 1 · What Is GeoAI? Definitions, Foundations and Five Verbs Across U.S. Cities](https://jhovenf98.github.io/geoai-for-cities/#part-1)**
+- **[Part 2 · Who Gets the Shade? Ranking New York Neighborhoods for Tree Planting](https://jhovenf98.github.io/geoai-for-cities/#part-2)** (working paper)
+- [Research Notes: Questions, Methods and Data](https://jhovenf98.github.io/geoai-for-cities/#research) · [All posts](https://jhovenf98.github.io/geoai-for-cities/#blog)
 
 ---
 
 ### 🗺️ GeoAI for Cities: research projects
 
-#### 🌳 [Who Gets the Shade?](https://github.com/JohanArisato/who-gets-the-shade) · `LIVE · REAL DATA`
+#### 🌳 [Who Gets the Shade?](https://github.com/jhovenf98/who-gets-the-shade) · `LIVE · REAL DATA`
 When NYC ranks neighborhoods for tree planting, how much does the ranking rule change who benefits?
 
 Across NYC's 42 UHF neighborhoods, each point of tree canopy is associated with 0.17 °F lower surface temperature, but heat-related ER visits track poverty (r = 0.59) far more than heat. Switching the ranking rule moves the poorest neighborhoods from 4 to 9 of the first 10 planted. (The equity-weighted rule includes poverty directly, so part of that jump is by design; the open question is what each rule trades away.)
 
-<p align="center"><a href="https://github.com/JohanArisato/who-gets-the-shade"><img src="assets/shade_maps.svg" width="100%" alt="Two NYC maps: heat-related ER visit rates by neighborhood (2.6 to 15.3 per 100,000), and robust planting priorities, outlined where a neighborhood is in the top 10 under at least 90% of 5,000 ranking rules."></a></p>
-<p align="center"><a href="https://github.com/JohanArisato/who-gets-the-shade"><img src="assets/ranking_rules.svg" width="100%" alt="Bar chart: poorest-third neighborhoods among the first 10 planted: canopy gap 4, hottest surfaces 6, canopy gap plus heat 6, heat illness 7, equity-weighted 9."></a></p>
+<p align="center"><a href="https://github.com/jhovenf98/who-gets-the-shade"><img src="assets/shade_maps.svg" width="100%" alt="Two NYC maps: heat-related ER visit rates by neighborhood (2.6 to 15.3 per 100,000), and robust planting priorities, outlined where a neighborhood is in the top 10 under at least 90% of 5,000 ranking rules."></a></p>
+<p align="center"><a href="https://github.com/jhovenf98/who-gets-the-shade"><img src="assets/ranking_rules.svg" width="100%" alt="Bar chart: poorest-third neighborhoods among the first 10 planted: canopy gap 4, hottest surfaces 6, canopy gap plus heat 6, heat illness 7, equity-weighted 9."></a></p>
 
-**Methods:** Moran's I/LISA · spatial lag & error models · leave-one-borough-out CV · 5,000 random weightings · [interactive map](https://johanarisato.github.io/geoai-for-cities/explore/shade.html)
+**Methods:** Moran's I/LISA · spatial lag & error models · leave-one-borough-out CV · 5,000 random weightings · [interactive map](https://jhovenf98.github.io/geoai-for-cities/explore/shade.html)
 
-#### 🏗️ [Will It Get Built?](https://github.com/JohanArisato/housing-site-realization) · `TESTING · SYNTHETIC DATA`
+#### 🏗️ [Will It Get Built?](https://github.com/jhovenf98/housing-site-realization) · `TESTING · SYNTHETIC DATA`
 Which of San Diego's 2021 Housing Element sites actually got housing approvals, and can a model predict it better than the city's capacity assumptions? *Pipeline built and validated on synthetic data; real-data run in progress.*
 
-**Methods:** spatial CV · LightGBM · calibration · SHAP · equity audit · [explorer](https://johanarisato.github.io/geoai-for-cities/explore/housing.html)
+**Methods:** spatial CV · LightGBM · calibration · SHAP · equity audit · [explorer](https://jhovenf98.github.io/geoai-for-cities/explore/housing.html)
 
-#### 📣 [CurbCall](https://github.com/JohanArisato/curbcall) · `PROTOTYPE`
+#### 📣 [CurbCall](https://github.com/jhovenf98/curbcall) · `PROTOTYPE`
 If residents report and vote on what to fix first, whose problems get heard?
 
-**Methods:** product prototype · PostGIS data model · per-area ranking · [app demo](https://johanarisato.github.io/geoai-for-cities/explore/curbcall.html)
+**Methods:** product prototype · PostGIS data model · per-area ranking · [app demo](https://jhovenf98.github.io/geoai-for-cities/explore/curbcall.html)
 
-**Behind all three:** [geoai-cities-db](https://github.com/JohanArisato/geoai-cities-db), one GeoPackage + PostGIS database with synthetic-data flags ([explorer](https://johanarisato.github.io/geoai-for-cities/explore/database.html)), and [GeoAI for Cities](https://github.com/JohanArisato/geoai-for-cities), the research site and article series.
+**Behind all three:** [geoai-cities-db](https://github.com/jhovenf98/geoai-cities-db), one GeoPackage + PostGIS database with synthetic-data flags ([explorer](https://jhovenf98.github.io/geoai-for-cities/explore/database.html)), and [GeoAI for Cities](https://github.com/jhovenf98/geoai-for-cities), the research site and article series.
 
 #### How the projects fit together
 
