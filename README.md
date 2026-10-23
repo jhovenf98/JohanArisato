@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/banner.svg" width="100%" alt="Johan Fernandez, urban data science and GeoAI. Map of NYC's 42 UHF neighborhoods colored by heat-related ER visit rate, from 2.6 to 15.3 per 100,000, highest in Port Richmond."></p>
+<p align="center"><img src="assets/banner.svg" width="100%" alt="Jhoven Fernandez, urban data science and GeoAI. Map of NYC's 42 UHF neighborhoods colored by heat-related ER visit rate, from 2.6 to 15.3 per 100,000, highest in Port Richmond."></p>
 
 ### Urban data scientist · GeoAI for housing, land use and infrastructure
 

@@ -14,7 +14,7 @@ from pathlib import Path
 from shapely.geometry import shape
 
 OUT = Path(__file__).parent
-NAME = "Johan Fernandez"
+NAME = "Jhoven Fernandez"
 
 BG = "#0a0f1a"
 GRID = "#1b2a3d"

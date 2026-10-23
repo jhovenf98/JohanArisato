@@ -72,7 +72,7 @@
 <text x="632" y="237.0" fill="#e6edf3" font-size="14">15.3 heat ER visits / 100k</text>
 <rect x="610" y="22" width="570" height="2" fill="#3fd0e0" opacity="0.35"><animate attributeName="y" values="22;396;22" dur="9s" repeatCount="indefinite"/></rect>
 <text x="56" y="72" fill="#3fd0e0" font-size="16" letter-spacing="3">// URBAN DATA SCIENCE · GEOAI</text>
-<text x="52" y="140" fill="#e6edf3" font-size="60" font-weight="700" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">Johan Fernandez</text>
+<text x="52" y="140" fill="#e6edf3" font-size="60" font-weight="700" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">Jhoven Fernandez</text>
 <text x="56" y="186" fill="#e6edf3" font-size="24" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">Spatial ML for housing, heat and</text>
 <text x="56" y="218" fill="#e6edf3" font-size="24" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">infrastructure: who gets what in cities?</text>
 <text x="56" y="266" font-size="18"><tspan fill="#7d8fa3">ORIGIN</tspan><tspan fill="#e6edf3" x="150">San Diego, CA · 32.9°N 117.2°W</tspan></text>
